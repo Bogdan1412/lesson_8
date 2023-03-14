@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 4. Дано послідовність номерів автомобілів. Підрахувати кількість номерів, які : <p>• починаються на букву «А»;</p>
+		<p>• перша і остання літери співпадають;</p>
+		<p>• складаються з більше ніш 5 символів;</p>
+	</h3>
+	<script>
+		let regisNum = ['AA325AA', 'BE234BB', 'AB777BA', 'AD666DI']
+		function getStartLetter(start) {
+			let count = 0
+			for (let i = 0; i < start.length; i++) {
+				if (start[i][0] === 'A') count++
+			}
+			return count
+		}
+		const startLetterA = getStartLetter(regisNum)
+		document.write(`Start from A = ${startLetterA}<br>`)
+
+		function getStartLetterEndFinirs(startEndFinirs) {
+			let count = 0
+			for (let j = 0; j < startEndFinirs.length; j++) {
+				if ((startEndFinirs[j][0] === 'A') && (startEndFinirs[j][6] === 'A')) count++
+			}
+			return count
+		}
+		const startLetterEndFinirs = getStartLetterEndFinirs(regisNum)
+		document.write(`Start letter end finirs = ${startLetterEndFinirs}<br>`)
+		function getMore_5_simbols(more) {
+			let count = 0
+			for (let i = 0; i < more.length; i++) {
+				if (more[i].length > 5) count++
+			}
+			return count
+		}
+		const more_5_simbols = getMore_5_simbols(regisNum)
+		document.write(`More end 5 simbols = ${more_5_simbols}`)
+	</script>
+</body>
+
+</html>

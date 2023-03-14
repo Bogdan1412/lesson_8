@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h4>Задача 1. Дан массив, содержащий оценки из К предметов. Найти средний балл и выяснить к какой категории он относится (отличник, двойник (имеет хотя бы одну двойку), хорошист (оценки хорошо и отлично), троечник (есть хотя бы одна тройка)).</h4>
+	<script>
+		function inoutArray(itemPoints) {
+			let arr = []
+			for (let i = 1; i <= itemPoints; i++) {
+				const studentPoints = parseFloat(prompt(`Enter student ${i} points`))
+				arr.push(studentPoints)
+			}
+			return arr
+		}
+
+		const K = parseInt(prompt('How meny lections?'))
+		const userPoints = inoutArray(K)
+		document.write(`All points student = ${userPoints} <br>`)
+
+		function getAveregePoint(userPoints) {
+			let sum = 0
+			for (let j = 0; j < userPoints.length; j++) {
+				sum += userPoints[j]
+			}
+			return sum / userPoints.length
+		}
+		const averegePoints = getAveregePoint(userPoints)
+		document.write(`Averege points student = ${averegePoints}<br>`)
+
+		function getStudentAssessment(averegePoints) {
+			let result = ""
+			switch (averegePoints) {
+				case 1:
+				case 2: result = "Bad"
+					break;
+				case 3: result = "Approved"
+					break;
+				case 4: result = "Fine"
+					break;
+				case 5: result = "Very god"
+					break;
+				default: result = "Try agaen"
+					break;
+			}
+			return result
+		}
+		const assessment = getStudentAssessment(averegePoints)
+		document.write(`Your everege is = ${assessment}`)
+	</script>
+</body>
+
+</html>

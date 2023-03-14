@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 5. Дано послідовність оцінок учня. Підрахувати кількість: <p>1 двійок</p>
+		<p>2 кількість хороших оцінок (добре, відмінно);</p> 3 кількість оцінок, які нижче середнього.
+	</h3>
+	<script>
+		let studentsScore = [2, 3, 4, 5, 2, 3, 4, 5, 2, 2, 4, 5, 1,4]
+
+		function getMinScore(minScore) {
+			let counter = 0
+			for (let i = 0; i < minScore.length; i++) {
+				if (minScore[i] === 2 || minScore[i] < 2) counter++
+				// let minScore = Math.min(...minScore) 
+			}
+			return counter
+		}
+		const userScoreOf_2 = getMinScore(studentsScore)
+		document.write(`Numbern of twos = ${userScoreOf_2} <br>`)
+
+		function getGodScore(godScore) {
+			let count = 0
+			for (let i = 0; i < godScore.length; i++) {
+				if (godScore[i] > 3) count++
+			}
+			return count
+		}
+		const userScorseBelowAverage = getGodScore(studentsScore)
+		document.write(`God score = ${userScorseBelowAverage}<br>`)
+
+		function getLessEverage(everage) {
+			let count = 0
+			for (let i = 0; i <= everage.length; i++) {
+				if (everage[i] < 4 && everage[i] >= 2) count++
+			}
+			return count
+		}
+		const userLessEverage = getLessEverage(studentsScore)
+		document.write(`Numbers of score which are below average = ${userLessEverage}`)
+	</script>
+</body>
+
+</html>

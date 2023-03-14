@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 7. Дано послідовність платіжок протягом року. <p>Знайти сумарну кількість грошей за:</p>
+		<p>за весь рік; у першій половині року; у другій половині року;</p>
+		<p>за літо; за ІІ квартал; за парні місяці (з парними номерами);</p>
+		<p>за місяці, які є початковими у сезоні (весна, літо, осінь, зима).</p>
+	</h3>
+	<script>
+		function getRandomNumber(newArr, min, max) {
+			let arr = []
+			for (let i = 0; i < newArr; i++) {
+				let randomNum = min + Math.floor(Math.random() * (max - min + 1))
+				arr.push(randomNum)
+			}
+			return arr
+		}
+		// console.log(getRandomNumber(12, 1, 100));
+
+		const incomeForYear = [22, 33, 44, 44, 55, 66, 76, 45, 67, 88, 65, 3]
+		function getSumDicloration(income, min = 1, max = 12) {
+			sum = 0
+			for (let i = min; i < max; i++) {
+				sum += income[i - 1]
+			}
+			return sum
+		}
+		const declForYear = getSumDicloration(incomeForYear, 1, 12)
+		document.write(`Decloration for 12 month = ${declForYear}$<br>`)
+		const declFor1_6Month = getSumDicloration(incomeForYear, 1, 6)
+		document.write(`Decloration for 1-6 month = ${declFor1_6Month}$<br>`)
+		const declFor6_12Month = getSumDicloration(incomeForYear, 6, 12)
+		document.write(`Decloration for 6-12 month = ${declFor6_12Month}$<br>`)
+		const declFor6_8Month = getSumDicloration(incomeForYear, 6, 8)
+		document.write(`Decloration for 6-8 month = ${declFor6_8Month}$<br>`)
+
+		function getEventMonth(incomeForYear) {
+			let sumEvent = 0
+			for (let i = 0; i < incomeForYear.length; i++) {
+				if ((i + 1) % 2 === 0) sumEvent += incomeForYear[i]
+			}
+			return sumEvent
+		}
+		const declForEvent = getEventMonth(incomeForYear)
+		document.write(`Decloration for ivent 6-12 month = ${declForEvent}$<br>`)
+
+		function getStartSeson(incomeForYear) {
+			let startSeson = 0
+			for (let i = 0; i < incomeForYear.length; i++) {
+				if ((i + 1) % 3 === 0) startSeson += incomeForYear[i]
+			}
+			return startSeson
+		}
+		const startSeson = getStartSeson(incomeForYear)
+		document.write(`Start sesons = ${startSeson}$<br>`)
+	</script>
+</body>
+
+</html>

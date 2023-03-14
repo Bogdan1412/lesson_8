@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 8. <p>Дано одновимірний масив, у якому зберігається певна виграшна сума (елементи заповнюються випадковим чином значеннями від -500 до 500).</p> Надаючи користувачу можливість вибирати номери елементів (поки він не відмовиться). <p>Знаходити сумарний виграш.</p>
+	</h3>
+	<script>
+		function getRandomNumber(minV, maxV,) {
+			return minV + Math.floor(Math.random() * (maxV - minV + 1))
+		}
+		let cellsNumbers = 10
+		let numbersGameArr = []
+		function getRandomNumbersGame(cells, massive, minNum, maxNum) {
+			for (let i = 0; i < cells; i++) {
+				let randomNum = getRandomNumber(minNum, maxNum)
+				massive.push(randomNum)
+			}
+			return massive
+		}
+		console.log(getRandomNumbersGame(cellsNumbers, numbersGameArr, -500, 500));
+
+		function isUserTry(numbersGameArr) {
+			let result = 0
+			let undIndex = numbersGameArr.length + 1
+			for (let i = 1; i < undIndex; i++) {
+				const userTry = parseInt(prompt(`Enter your numbers from (1-10): try number: ${i}`))
+				if (!isNaN(userTry) === false) break
+				result += numbersGameArr[userTry - 1]
+			}
+			return result
+		}
+		const userResultGame = isUserTry(numbersGameArr)
+		document.write(`Your result = ${userResultGame}$`)
+	</script>
+</body>
+
+</html>

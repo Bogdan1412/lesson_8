@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 3. Дано масив імен учнів. З’ясувати скільки разів зустрічається ім’я «Іван».</h3>
+	<script>
+		let userName = ['Ivan', 'Arek', 'Marek', 'Kolia', 'Ivan', 'Anton']
+		function getCountTheName(counter) {
+			let sum = 0
+			for (let i = 0; i < counter.length; i++) {
+				if (counter[i] === 'Ivan') sum++
+			}
+			return sum
+		}
+		const userResName = getCountTheName(userName)
+		document.write(`Name occurs: ${userResName} times.`)
+		// function getCount(min, max, ...number) {
+		// 	let count = 0
+		// 	for (let i = 0; i < number.length; i++) {
+		// 		if (number[i] >= min && number[i] <= max) count++
+		// 	}
+		// 	return count
+		// }
+		// console.log(getCount(1, 10, 2,3,4,5,4,5,6,10,12,5));
+		// function sum(a, b) {
+		// 	return [a + b , a * b ]
+		// }
+		// let res = sum(2, 5)
+		// console.log(res[0], res[1]);
+		// function getRes(a, b) {
+		// 	return { sum: a + b, mult: a * b }
+		// }
+		// let result = getRes(2,7)
+		// console.log(result.sum,result.mult);
+		// let age1 = 30
+		// let age2 = 20
+		// let maxAge = age1
+		// if (age2 > maxAge) maxAge = age2
+		// console.log(maxAge);
+	</script>
+</body>
+
+</html>

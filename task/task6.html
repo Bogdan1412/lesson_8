@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 6. Дано послідовність цін товарів та назв (у окремих масивах). <p>Вивести на екран ті, які може собі дозволити користувач (кількість грошей задається).</p>
+		<p>let productsPrices = [1000, 20, 31]</p> let productsTitles = [‘cheese’, ‘juice’, ‘bread’] </a>
+	</h3>
+	<script>
+		let productPrices = [200, 1000, 44, 20, 10]
+		let productTitles = ['cheese', 'meat', 'apple', 'bread', 'potato']
+		const userMoney = parseInt(prompt('How much money du you have?'))
+		function getSumItem(money, price, title) {
+			let itemsPrice = []
+			for (let i = 0; i < price.length; i++) {
+				if (money >= price[i]) itemsPrice.push(`${title[i]} $${price[i]} `)
+			}
+			return itemsPrice
+		}
+		const youCanBay = getSumItem(userMoney, productPrices, productTitles)
+		document.write(`You can bay: ${youCanBay}`)
+	</script>
+</body>
+
+</html>

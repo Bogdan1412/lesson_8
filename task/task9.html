@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+
+<body>
+	<h3>Задача 9. Морський бій. <p>Користувач вводить кількість клітинок одновимірного масиву та кількість одиночних кораблів.</p>
+		<p>Комп’ютер довільно розміщує ці одиночні кораблі у масиві по один у клітинці якщо у клітинці 0,</p> то<p> клітинка пуста,</p>
+		<p>якщо 1 – то це означає, що там є корабель.</p>
+		<p>Користувач вводить номер клітинки, куди стріляє.</p> Гра продовжується до тих пір, поки не будуть потоплені усі кораблі.
+	</h3>
+	<script>
+		// function getRandomNumber(minV, maxV) {
+		// 	return minV + Math.floor(Math.random() * (maxV - minV + 1))
+		// }
+		// // генерирует index
+		// function getEmptyCage(gameFieldArr) {
+		// 	let shipsI
+		// 	const lastI = gameFieldArr.length - 1
+		// 	do {
+		// 		shipsI = getRandomNumber(0, lastI)//minEl,maxEl
+		// 	} while (gameFieldArr[shipsI] === 1)
+		// 	return shipsI
+		// }
+
+		// // поле игры (одновимірного масив)
+		// function getGameField(cells, spips) {
+		// 	let gameFieldArr = new Array(cells).fill(0)// заполняем = 0
+		// 	for (let i = 0; i < spips; i++) {// цыкл
+		// 		let shipsI = getEmptyCage(gameFieldArr)
+		// 		gameFieldArr[shipsI] = 1
+		// 	}
+		// 	return gameFieldArr
+		// }
+
+		// //start game
+		// function startGame(gameFieldArr, gameFieldArr) {
+		// 	do {
+		// 		const userTryShot = parseInt(prompt(`Your shot (1-${gameFieldArr})`)) - 1
+		// 		if (gameFieldArr[userTryShot] === 1) {
+		// 			spips--
+		// 			alert('Hit the target')
+		// 			gameFieldArr[userTryShot] = 0
+		// 		}
+		// 		else {
+		// 			alert('Missed the target')
+		// 		}
+		// 	} while (spips > 0)
+		// }
+
+		// const userGameStart = getGameField(10,3)
+		// startGame(gameFieldArr,3)
+
+		// function getRandomNumber(minV, maxV) {
+		// 	return minV + Math.floor(Math.random() * (maxV - minV + 1))
+		// }
+
+		// function getFreeCell(gameLocation) {
+		// 	let ship
+		// 	const lastIndex = gameLocation.length - 1
+		// 	do {
+		// 		ship = getRandomNumber(0, lastIndex)
+		// 	} while (gameLocation[ship] === 1)
+		// 	return ship
+		// }
+
+		// function getGemeFieldArr(cellsLocation, shipsLocation) {
+		// 	let gameLocationArr = new Array(cellsLocation).fill(0)
+		// 	for (let i = 0; i < shipsLocation; i++) {
+		// 		let ship = getRandomNumber(gameLocationArr)
+		// 		gameLocationArr[ship] = 1
+		// 	}
+		// 	return gameLocationArr
+		// }
+
+		// function gameShips(gameLocation, shipsLocation) {
+		// 	do {
+		// 		const userStrikePosition = parseInt(prompt(`Where are you shooting ${gameLocation.length}`)) - 1
+		// 		if (gameLocation[userStrikePosition] === 1) {
+		// 			shipsLocation--
+		// 			alert('Hit the target!')
+		// 			gameLocation[userStrikePosition] = 0
+		// 		} else alert('Missed')
+		// 	} while (ship > 0);
+		// }
+		// const gameField =  gameShips(10,3)
+		// getFreeCell(gameField,3)
+
+
+		function getRandomNum(minValue, maxValue) {
+			return minValue + Math.floor(Math.random() * (maxValue - minValue + 1))
+		}
+
+		function getFreeCell(gameField) {
+			let shipIndex
+			const lastIndex = gameField.length - 1
+			do {
+				shipIndex = getRandomNum(0, lastIndex)
+			} while (gameField[shipIndex] === 1)
+			return shipIndex
+		}
+
+		function createGameField(cellsNumber, shipsNumber) {
+			const gameField = new Array(cellsNumber).fill(0)
+			for (let i = 0; i < shipsNumber; i++) {
+				let shipIndex = getFreeCell(gameField)
+				gameField[shipIndex] = 1
+			}
+			return gameField
+		}
+
+		function game(gameField, shipsNumber) {
+			do {
+				const userStrikePosition =
+					parseInt(prompt(`Where to shoot (1-${gameField.length})?`)) - 1
+				if (gameField[userStrikePosition] === 1) {
+					shipsNumber--
+					alert('Hit the target')
+					gameField[userStrikePosition] = 0
+				} else alert('Missed the target')
+			} while (shipsNumber > 0)
+		}
+
+		const gameField = createGameField(10, 3)
+		game(gameField, 3)
+
+	</script>
+</body>
+
+</html>
